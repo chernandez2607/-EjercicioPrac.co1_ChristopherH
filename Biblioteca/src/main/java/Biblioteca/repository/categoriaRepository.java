@@ -8,6 +8,16 @@ package Biblioteca.repository;
  *
  * @author ex1hernach
  */
-public class categoriaRepository {
-    
+
+
+
+import Biblioteca.domain.categoria;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+
+
+
+public interface categoriaRepository extends JpaRepository<categoria, Long> {
+
 }

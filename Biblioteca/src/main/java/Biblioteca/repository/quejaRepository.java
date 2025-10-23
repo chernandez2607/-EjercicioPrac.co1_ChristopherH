@@ -8,6 +8,8 @@ package Biblioteca.repository;
  *
  * @author ex1hernach
  */
-public class quejaRepository {
-    
-}
+import Biblioteca.domain.queja;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface quejaRepository extends JpaRepository<queja, Long> { }

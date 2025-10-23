@@ -8,6 +8,13 @@ package Biblioteca.repository;
  *
  * @author ex1hernach
  */
-public class libroRepository {
+
+
+import Biblioteca.domain.libro;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+
+public interface libroRepository extends JpaRepository<libro, Long> {
     
 }

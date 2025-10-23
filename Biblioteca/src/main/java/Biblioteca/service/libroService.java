@@ -8,6 +8,15 @@ package Biblioteca.service;
  *
  * @author ex1hernach
  */
-public class libroService {
-    
+import Biblioteca.domain.libro;
+import java.util.List;
+import java.util.Optional;
+
+
+public interface libroService {
+List<libro> listar();
+List<libro> buscar(String q);
+Optional<libro> porId(Long id);
+libro guardar(libro l);
+void eliminar(Long id);
 }

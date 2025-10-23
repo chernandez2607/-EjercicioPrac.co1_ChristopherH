@@ -8,6 +8,11 @@ package Biblioteca.service;
  *
  * @author ex1hernach
  */
-public class quejaService {
-    
+
+
+import Biblioteca.domain.queja;
+
+
+public interface quejaService {
+queja guardar(queja q);
 }
