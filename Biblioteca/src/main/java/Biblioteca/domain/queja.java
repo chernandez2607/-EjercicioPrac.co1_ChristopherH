@@ -4,46 +4,58 @@
  */
 package Biblioteca.domain;
 
-/**
- *
- * @author ex1hernach
- */
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
-
 
 @Entity
+@Table(name = "quejas")
 public class queja {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
-
-
-@NotBlank
-private String nombreUsuario;
-
-
-@NotBlank
-@Column(length = 1000)
-private String mensaje;
-
-
-private LocalDateTime fecha = LocalDateTime.now();
-
-
-public Long getId() { return id; }
-public void setId(Long id) { this.id = id; }
-
-
-public String getNombreUsuario() { return nombreUsuario; }
-public void setNombreUsuario(String nombreUsuario) { this.nombreUsuario = nombreUsuario; }
-
-
-public String getMensaje() { return mensaje; }
-public void setMensaje(String mensaje) { this.mensaje = mensaje; }
-
-
-public LocalDateTime getFecha() { return fecha; }
-public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String asunto;
+    
+    private String descripcion;
+    
+    private String usuario;
+    
+    @Column(name = "fecha_creacion")
+    private String fechaCreacion;
+    
+    private String estado;
+    
+    // Constructor vacío (requerido por JPA)
+    public queja() {
+    }
+    
+    // Constructor con parámetros
+    public queja(String asunto, String descripcion, String usuario, String fechaCreacion, String estado) {
+        this.asunto = asunto;
+        this.descripcion = descripcion;
+        this.usuario = usuario;
+        this.fechaCreacion = fechaCreacion;
+        this.estado = estado;
+    }
+    
+    // Getters y Setters
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public String getAsunto() {
+        return asunto;
+    }
+    
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
+    }
+    
+    public String getDescripcion() {
+        return descripcion;
+    }
 }

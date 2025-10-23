@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="es" th:replace="~{base :: body}">
+<body>
+<section>
+<h1>Libros</h1>
+<form method="get" th:action="@{/libros}">
+<input type="text" name="q" placeholder="Buscar por título" th:value="${q}">
+<button type="submit">Buscar</button>
+<a th:href="@{/libros}">Limpiar</a>
+</form>
+<p><a th:href="@{/libros/nuevo}">+ Nuevo libro</a></p>
+
+
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Título</th>
+<th>Autor</th>
+<th>Categoría</th>
+<th>Disponible</th>
+<th>Acciones</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="l : ${libros}">
+<td th:text="${l.id}">1</td>
+<td th:text="${l.titulo}">Titulo</td>
+<td th:text="${l.autor}">Autor</td>
+<td th:text="${l.categoria.nombre}">Cat</td>
+<td>
+<span th:text="${l.disponible} ? 'Sí' : 'No'"></span>
+</td>
+<td>
+<a th:href="@{'/libros/editar/' + ${l.id}}">Editar</a>
+<form th:action="@{'/libros/' + ${l.id} + '/eliminar'}" method="post" style="display:inline">
+<button type="submit" onclick="return confirm('¿Eliminar libro?')">Eliminar</button>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</body>
+</html>

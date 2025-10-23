@@ -7,3 +7,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : ex1hernach
 */
 
+body { font-family: system-ui, Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 1rem; }
+header nav a { margin-right: .75rem; }
+label { display: block; margin: .5rem 0; }
+input[type=text], select, textarea { width: 100%; padding: .5rem; }
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { border: 1px solid #ddd; padding: .5rem; }
+button, a.button { padding: .4rem .8rem; }

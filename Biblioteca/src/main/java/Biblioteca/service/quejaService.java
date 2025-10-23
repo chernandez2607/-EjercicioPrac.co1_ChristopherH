@@ -10,9 +10,35 @@ package Biblioteca.service;
  */
 
 
+
 import Biblioteca.domain.queja;
+import Biblioteca.repository.quejaRepository;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.stereotype.Service;
 
-
-public interface quejaService {
-queja guardar(queja q);
+@Service
+public class quejaService {
+    
+    private final quejaRepository repository;
+    
+    public quejaService(quejaRepository repository) {
+        this.repository = repository;
+    }
+    
+    public List<queja> listar() {
+        return repository.findAll();
+    }
+    
+    public queja guardar(queja q) {
+        return repository.save(q);
+    }
+    
+    public Optional<queja> porId(Long id) {
+        return repository.findById(id);
+    }
+    
+    public void eliminar(Long id) {
+        repository.deleteById(id);
+    }
 }

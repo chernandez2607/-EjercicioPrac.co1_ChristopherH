@@ -8,14 +8,38 @@ package Biblioteca.service;
  *
  * @author ex1hernach
  */
+
+
 import Biblioteca.domain.categoria;
+import Biblioteca.repository.categoriaRepository;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 
-
-public interface categoriaService {
-List<categoria> listar();
-categoria guardar(categoria c);
-Optional<categoria> porId(Long id);
-void eliminar(Long id);
+@Service
+public class categoriaService {
+    
+    private final categoriaRepository repository;
+    
+    // Constructor
+    public categoriaService(categoriaRepository repository) {
+        this.repository = repository;
+    }
+    
+    // Implementa los métodos
+    public List<categoria> listar() {
+        return repository.findAll();
+    }
+    
+    public categoria guardar(categoria c) {
+        return repository.save(c);
+    }
+    
+    public Optional<categoria> porId(Long id) {
+        return repository.findById(id);
+    }
+    
+    public void eliminar(Long id) {
+        repository.deleteById(id);
+    }
 }

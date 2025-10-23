@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:text="${title} ?: 'Biblioteca'">Biblioteca</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+<nav>
+<a th:href="@{/}">Inicio</a> |
+<a th:href="@{/libros}">Libros</a> |
+<a th:href="@{/categorias}">Categorías</a> |
+<a th:href="@{/quejas/nueva}">Quejas</a>
+</nav>
+</header>
+<main>
+<div th:replace="~{::body}"></div>
+</main>
+<footer>
+<small>© [[${#calendars.format(#dates.createNow(), 'yyyy')}]] Biblioteca</small>
+</footer>
+</body>
+</html>

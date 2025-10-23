@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="es" th:replace="~{base :: body}">
+<body>
+<section>
+<h1>Enviar queja / sugerencia</h1>
+<form th:action="@{/quejas}" method="post" th:object="${queja}">
+<label>Tu nombre
+<input type="text" th:field="*{nombreCliente}">
+</label>
+<label>Email
+<input type="email" th:field="*{email}">
+</label>
+<label>Teléfono
+<input type="text" th:field="*{telefono}">
+</label>
+<label>Tipo
+<select th:field="*{tipo}">
+<option th:each="t : ${T(com.tunombre.biblioteca.domain.TipoQueja).values()}" th:value="${t}" th:text="${t}"></option>
+</select>
+</label>
+<label>Asunto
+<input type="text" th:field="*{asunto}">
+</label>
+<label>Mensaje
+<textarea th:field="*{mensaje}" rows="6"></textarea>
+<span th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}"></span>
+</label>
+<button type="submit">Enviar</button>
+<a th:href="@{/}">Volver</a>
+</form>
+</section>
+</body>
+</html>
